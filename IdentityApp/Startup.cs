@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System;
-
+using Microsoft.AspNetCore.HttpOverrides;
 namespace IdentityApp {
 
     public class Startup {
@@ -43,7 +43,7 @@ namespace IdentityApp {
             });
 
             services.AddHttpsRedirection(opts => {
-                opts.HttpsPort = 44350;
+                opts.HttpsPort = 5001;
             });
             //    
             // for Identity
@@ -109,20 +109,29 @@ namespace IdentityApp {
             services.AddScoped<TokenUrlEncoderService>();
             services.AddScoped<IdentityEmailService>();
             // Support JWTBear Token
-            services.AddAuthentication()
-                    .AddGoogle(options =>
-                    {
-                        IConfigurationSection googleAuthNSection =
-                            Configuration.GetSection("Authentication:Google");
+//             services.AddAuthentication()
+//                     .AddGoogle(options =>
+//                     {
+//                         IConfigurationSection googleAuthNSection =
+//                             Configuration.GetSection("Authentication:Google");
 
-                        options.ClientId = googleAuthNSection["ClientId"];
-                        options.ClientSecret = googleAuthNSection["ClientSecret"];
-                    })
-                    .AddFacebook(facebookOptions =>
-                    {
-                        facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-                        facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-                    })
+//                         options.ClientId = googleAuthNSection["ClientId"];
+//                         options.ClientSecret = googleAuthNSection["ClientSecret"];
+//                     })
+//                     .AddFacebook(facebookOptions =>
+//                     {
+//                         facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+//                         facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+//                     })
+//                     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opts => {
+//                         opts.TokenValidationParameters.ValidateAudience = false;
+//                         opts.TokenValidationParameters.ValidateIssuer = false;
+//                         opts.TokenValidationParameters.IssuerSigningKey
+//                             = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+//                                 Configuration["JWTBearerTokens:Key"]));
+//                     });                                        
+//             ;            
+            services.AddAuthentication()
                     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opts => {
                         opts.TokenValidationParameters.ValidateAudience = false;
                         opts.TokenValidationParameters.ValidateIssuer = false;
@@ -131,6 +140,7 @@ namespace IdentityApp {
                                 Configuration["JWTBearerTokens:Key"]));
                     });                                        
             ;            
+
             /// <summary>
             /// need to update the ASP.NET Core configuration. By default, ASP.NET Core will use the /Account/Login and /Account/Logout URLs for signing in and out of the application. 
             /// Could have used the routing system to ensure that my new Razor Pages will receive requests to these URLs, but I have chosen to change the URLs that ASP.NET Core uses instead
@@ -174,6 +184,10 @@ namespace IdentityApp {
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });            
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
