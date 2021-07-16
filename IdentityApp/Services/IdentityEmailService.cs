@@ -53,7 +53,7 @@ namespace IdentityApp.Services {
                 ContextAccessor.HttpContext, page,
                 null, new { email = emailAddress, token = safeToken}, 
                 "https", 
-                new HostString("localhost", 44350));
+                new HostString("localhost", 5001));
             Console.WriteLine($"URL:{url}");
             return url;
         }
