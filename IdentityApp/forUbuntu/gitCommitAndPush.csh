@@ -1,3 +1,3 @@
 #!/bin/bash
 git commit --all
-git push https://edwardhsueh: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@github.com/edwardhsueh/UbuntuIdentityApp.git --all
+git push https://edwardhsueh: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@github.com/edwardhsueh/UbuntuIdentityApp.git --all
