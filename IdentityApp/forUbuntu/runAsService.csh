@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo cp -p kestrel-IdentityApp.service /etc/systemd/system/.
 ## copy publish result to /var/www/IdentityApp
+sudo rm  -rf /var/www/IdentityApp
 sudo cp -rp ../bin/Release/net5.0 /var/www/IdentityApp
 sudo chown azureuser:azureuser /var/www/IdentityApp/
 sudo chmod -R 0755 /var/www/IdentityApp/
