@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/edwardhsueh/Documents/GitHub/UbuntuIdentityApp/IdentityApp/IdentityApp.csproj": {}
+    "/home/azureuser/UbuntuIdentityApp/IdentityApp/IdentityApp.csproj": {}
   },
   "projects": {
-    "/home/edwardhsueh/Documents/GitHub/UbuntuIdentityApp/IdentityApp/IdentityApp.csproj": {
+    "/home/azureuser/UbuntuIdentityApp/IdentityApp/IdentityApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/edwardhsueh/Documents/GitHub/UbuntuIdentityApp/IdentityApp/IdentityApp.csproj",
+        "projectUniqueName": "/home/azureuser/UbuntuIdentityApp/IdentityApp/IdentityApp.csproj",
         "projectName": "IdentityApp",
-        "projectPath": "/home/edwardhsueh/Documents/GitHub/UbuntuIdentityApp/IdentityApp/IdentityApp.csproj",
-        "packagesPath": "/home/edwardhsueh/.nuget/packages/",
-        "outputPath": "/home/edwardhsueh/Documents/GitHub/UbuntuIdentityApp/IdentityApp/obj/",
+        "projectPath": "/home/azureuser/UbuntuIdentityApp/IdentityApp/IdentityApp.csproj",
+        "packagesPath": "/home/azureuser/.nuget/packages/",
+        "outputPath": "/home/azureuser/UbuntuIdentityApp/IdentityApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/edwardhsueh/.nuget/NuGet/NuGet.Config"
+          "/home/azureuser/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -101,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.302/RuntimeIdentifierGraph.json"
         }
       }
     }

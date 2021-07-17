@@ -1,5 +1,5 @@
 #!/bin/bash
-# sudo vim /etc/nginx/sites-available/default 
+sudo cp -p default /etc/nginx/sites-available/default 
 # systemctl status nginx
 sudo systemctl stop nginx
 sudo nginx -t
