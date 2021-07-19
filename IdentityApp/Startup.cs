@@ -109,29 +109,20 @@ namespace IdentityApp {
             services.AddScoped<TokenUrlEncoderService>();
             services.AddScoped<IdentityEmailService>();
             // Support JWTBear Token
-//             services.AddAuthentication()
-//                     .AddGoogle(options =>
-//                     {
-//                         IConfigurationSection googleAuthNSection =
-//                             Configuration.GetSection("Authentication:Google");
-
-//                         options.ClientId = googleAuthNSection["ClientId"];
-//                         options.ClientSecret = googleAuthNSection["ClientSecret"];
-//                     })
-//                     .AddFacebook(facebookOptions =>
-//                     {
-//                         facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-//                         facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-//                     })
-//                     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opts => {
-//                         opts.TokenValidationParameters.ValidateAudience = false;
-//                         opts.TokenValidationParameters.ValidateIssuer = false;
-//                         opts.TokenValidationParameters.IssuerSigningKey
-//                             = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-//                                 Configuration["JWTBearerTokens:Key"]));
-//                     });                                        
-//             ;            
             services.AddAuthentication()
+                    .AddGoogle(options =>
+                    {
+                        IConfigurationSection googleAuthNSection =
+                            Configuration.GetSection("Authentication:Google");
+
+                        options.ClientId = googleAuthNSection["ClientId"];
+                        options.ClientSecret = googleAuthNSection["ClientSecret"];
+                    })
+                    .AddFacebook(facebookOptions =>
+                    {
+                        facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                        facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                    })
                     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opts => {
                         opts.TokenValidationParameters.ValidateAudience = false;
                         opts.TokenValidationParameters.ValidateIssuer = false;
@@ -140,6 +131,15 @@ namespace IdentityApp {
                                 Configuration["JWTBearerTokens:Key"]));
                     });                                        
             ;            
+//             services.AddAuthentication()
+//                     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opts => {
+//                         opts.TokenValidationParameters.ValidateAudience = false;
+//                         opts.TokenValidationParameters.ValidateIssuer = false;
+//                         opts.TokenValidationParameters.IssuerSigningKey
+//                             = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+//                                 Configuration["JWTBearerTokens:Key"]));
+//                     });                                        
+//             ;            
 
             /// <summary>
             /// need to update the ASP.NET Core configuration. By default, ASP.NET Core will use the /Account/Login and /Account/Logout URLs for signing in and out of the application. 
