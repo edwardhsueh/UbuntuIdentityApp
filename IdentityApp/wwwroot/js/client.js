@@ -53,7 +53,7 @@ function createAuthPrompt(targetElement) {
         const container = targetElement.make("div");
         container.classList.add("m-2", "p-2", "text-center");
         const status = container.make("span");
-        status.innerText = "Not signed in";
+        status.innerText = "Not signed in(Only Admin Role can Get Data)";
         const button1 = container.make("button");
         button1.classList.add("btn", "btn-sm", "btn-secondary", "m-2");
         button1.innerText = "Sign In as alice";
