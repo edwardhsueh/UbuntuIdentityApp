@@ -1,5 +1,5 @@
-const baseUrl = "https://edwarddotnetvm.eastasia.cloudapp.azure.com/api/data";
-const authUrl = "https://edwarddotnetvm.eastasia.cloudapp.azure.com/api/auth";
+const baseUrl = "https://localhost:5001/api/data";
+const authUrl = "https://localhost:5001/api/auth";
 const baseRequestConfig = {
     credentials: "include"
 }
